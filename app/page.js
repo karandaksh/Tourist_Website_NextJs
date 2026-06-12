@@ -1,11 +1,20 @@
+import Navbar from "./components/common/Navbar";
 
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-       This is a Main Page
-      </main>
-    </div>
+    <>
+      <div className="max-w-[1320px] border rounded m-auto py-4">
+        <Navbar />
+
+      </div>
+
+
+      {/* <div className="bg-background text-foreground">
+        <p className="text-textdarkblue">यह सेकंडरी टेक्स्ट है</p>
+        <button className="bg-accent">क्लिक करें</button>
+      </div> */}
+
+    </>
   );
 }
