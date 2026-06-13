@@ -1,10 +1,12 @@
 "use client";
 
-import React from 'react'
+import React, { Children } from 'react'
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 
 import logo from '@/public/assets/img/logo_orange.svg'
+import Button from '../ui/Button';
+
 
 
 
@@ -16,116 +18,57 @@ const menuItems = [
   { id: 4, name: "Activity", href: "/activity", group: "left" },
   { id: 5, name: "Pages", href: "/pages", group: "left" },
   { id: 6, name: "Contact", href: "/contact", group: "left" },
-  { id: 7, name: "USD", href: "/currency", group: "right" },
+  { id: 7, name: "USD", href: "/usd", group: "right" },
   { id: 8, name: "Help", href: "/help", group: "right" },
+  { id: 9, name: "Sign up", href: "/signup", group: "right" },
 ];
 
 
 const Navbar = () => {
-  const pathname = usePathname()
+  // const pathname = usePathname()
+  const OnClickHandle = () => {
+    console.log('login Click');
+
+  }
+
+
 
   return (
     <>
 
-      <div className="bg-background text-foreground transition-colors duration-300">
-
-        {/* NAVBAR */}
-        <nav className="w-full bg-background border-b border-gray-200 dark:border-gray-800 fixed top-0 left-0 z-50">
-          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-
-            {/* Left Side: Logo & Links */}
-            <div className="flex items-center gap-12">
-              <div className="text-2xl font-black text-brandorange tracking-tight cursor-pointer">
-                <Link href='/'> <img src={logo.src} alt="" /></Link>
-              </div>
-
-              <div className="hidden lg:flex items-center gap-8 text-[15px] font-medium">
-
-                {/* {menuItems
-                  .filter((item) => item.group === "left")
-                  .map((item, index) => (
-                    <a key={index} href={item.link} className={`transition-colors hover:text-brandorange ${item.active ? "text-brandorange font-semibold" : "text-textblue" }`}>
-                      {item.name}
-                    </a>
-                  ))} */}
-
-
-
-
-
-
-                {/* {menuItems
-                  .filter((item) => item.group === "left")
-                  .map((item, id) => (
-
-                    
-                    
-                    <Link href={item.href} key={item.id} id={item.id} className={`link ${pathname === `/${item.name} ? 'active' : ''`} transition-colors hover:text-red ${item.active ? "text-red" : "text-textblue"}`}>{item.name}</Link>
-                  )
-                  )
-                } */}
-
-
-                {menuItems
-                  .filter((item) => item.group === "left")
-                  .map((item) => {
-                    // 1. पहले ही चेक कर लो कि क्या यह लिंक अभी एक्टिव है या नहीं
-                    const isActive = pathname === item.href;
-
-                    return (
-                      <Link
-                        href={item.href}
-                        key={item.id} // सिर्फ 'key' ज़रूरी है, फालतू 'id' एट्रिब्यूट मत लगाओ
-                        className={`transition-colors text-[15px] font-medium ${isActive
-                          ? "text-brandorange font-semibold"
-                          : "text-textblue hover:text-brandorange"
-                          }`}
-                      >
-                        {item.name}
-                      </Link>
-                    );
-                  })
-                }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-              </div>
+      <nav className="max-w-[1320px] mx-auto py-4 transition-colors duration-300">
+        <div className="mx-auto px-3.5">
+          <div className="grid grid-cols-12 items-center justify-between ms-8">
+            <div className="cursor-pointer col-span-2 -mt-1">
+              <Link href='/'> <img src={logo.src} alt="logo" /></Link>
+            </div>
+            <div className="leftMenu col-span-6">
+              {menuItems
+                .filter((item) => (item.group === 'left'))
+                .map((item) => (<Link key={item.id} href={item.href} className={`text-sm px-2 py-4 mx-2 ${item.active ? 'text-red-500' : ''}`}>{item.name}</Link>))
+              }
             </div>
 
-            <div className="flex items-center gap-6 text-[15px] font-medium">
-              <div className="hidden md:flex items-center gap-6 text-textblue">
-                {/* {menuItems
-                  .filter((item) => item.group === "right")
-                  .map((item, index) => (
-                    <a key={index} href={item.link} className="hover:text-brandorange">
-                      {item.name}
-                    </a>
-                  ))} */}
-              </div>
+            <div className="rightMenu col-span-4 text-right">
+              {menuItems
+                .filter((item) => (item.group === 'right'))
+                .map((item) => (<Link key={item.id} href={item.href} className='text-sm px-2 py-4 mx-2'>{item.name}</Link>))
+              }
 
+              
+              <Button  btnType='button' btnClass='px-4 py-2 rounded-full border text-sm cursor-pointer' onClick={OnClickHandle}>Register</Button>  {/* This is a for example this is not part of Menu */}
+              {/* <Button  btnType='button' btnClass='px-4 py-2 rounded-full border text-sm cursor-pointer' onMouseOver={OnClickHandle}>Login</Button> */}
+              
 
+                <Link href='/login' className='px-4 py-2 rounded-full border text-sm cursor-pointer'>Login</Link>
 
-
-              {/* <button className="border border-textblue hover:bg-textblue hover:text-background text-textblue text-[15px] font-medium px-6 py-2.5 rounded-full transition-all">
-                Log in
-              </button> */}
             </div>
+
+
 
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
 
 
     </>
