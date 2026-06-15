@@ -56,7 +56,7 @@ const Navbar = () => {
               }
 
               
-              <Button  btnType='button' btnClass='px-4 py-2 rounded-full border text-sm cursor-pointer' onClick={OnClickHandle}>Register</Button>  {/* This is a for example this is not part of Menu */}
+              {/*<Button  btnType='button' btnClass='px-4 py-2 rounded-full border text-sm cursor-pointer' onClick={OnClickHandle}>Register</Button>*/}  {/* This is a for example this is not part of Menu */}
               {/* <Button  btnType='button' btnClass='px-4 py-2 rounded-full border text-sm cursor-pointer' onMouseOver={OnClickHandle}>Login</Button> */}
               
 

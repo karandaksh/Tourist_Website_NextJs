@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/common/Navbar";
 // import "./custom.css";
 
 
@@ -16,8 +17,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} h-full antialiased`}>
-      <body>{children}</body>
+      <body>
+
+        <Navbar/>
+
+        {children}
+      
+      
+      
+      </body>
       {/* <body className="flex flex-col mx-auto">{children}</body> */}
+
     </html>
   );
 }
