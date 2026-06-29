@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --textdarkblue: #05073C;
-  --textOrange: #EB662B;
-}
-
-.dark {
   --background: #0B0E26;
   --foreground: #ffffff;
   --textdarkblue: #A2A6C5;
   --textOrange: #FF7B42;
+}
+
+.dark {
+  --background: #ffffff;
+  --foreground: #171717;
+  --textdarkblue: #05073C;
+  --textOrange: #EB662B;
 }
 
 
@@ -32,4 +32,9 @@ body {
   color: var(--foreground);
   font-family: inter;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.heroSection{
+  background: url('../public/assets/img/hero_section_img.svg');
+  /* background: url('@/public/assests/img/hero_section_img.svg'); */
 }
